@@ -46,6 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         
         magicURLMenu.state = UserDefaults.standard.bool(forKey: "disabledMagicURLs") ? NSControl.StateValue.off : NSControl.StateValue.on
         
+        // default is transparent
+        didEnableTranslucency()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -90,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
     
-    var translucent: Bool = false {
+    var translucent: Bool = true {
         didSet {
             if !NSApplication.shared.isActive {
                 panel.ignoresMouseEvents = translucent

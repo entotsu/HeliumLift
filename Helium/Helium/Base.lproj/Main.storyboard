@@ -99,7 +99,7 @@
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" title="Preferences" id="HyV-fh-RgO">
                                 <items>
-                                    <menuItem title="Translucent" keyEquivalent="t" id="wnn-Wb-fUq">
+                                    <menuItem title="Translucent" state="on" keyEquivalent="t" id="wnn-Wb-fUq">
                                         <connections>
                                             <action selector="translucencyPress:" target="Ady-hI-5gd" id="orR-QV-BPD"/>
                                         </connections>
@@ -211,7 +211,7 @@
             <objects>
                 <windowController storyboardIdentifier="HeliumController" showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="HeliumLift" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="NSPanel">
-                        <windowStyleMask key="styleMask" titled="YES" resizable="YES" utility="YES" HUD="YES"/>
+                        <windowStyleMask key="styleMask" resizable="YES" utility="YES" HUD="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES"/>
                         <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
                         <rect key="contentRect" x="1101" y="707" width="480" height="275"/>
