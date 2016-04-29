@@ -94,9 +94,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     var translucent: Bool = true {
         didSet {
-            if !NSApplication.shared.isActive {
-                panel.ignoresMouseEvents = translucent
-            }
+            // if !NSApplication.shared.isActive {
+            //     panel.ignoresMouseEvents = translucent
+            // }
             if translucent {
                 panel.isOpaque = false
                 panel.alphaValue = alpha
