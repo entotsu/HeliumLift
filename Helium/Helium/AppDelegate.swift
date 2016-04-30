@@ -11,6 +11,7 @@ import CoreGraphics
 import MASShortcut
 
 let kPreferenceGlobalShortcut = "GlobalShortcut"
+let kThisApplicationName = "HeliumLift"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
@@ -52,8 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         // default is transparent
         didEnableTranslucency()
         
-        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) {
-            NSLog("did pres global shortcut")
+        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) { [weak self] in
+            NSLog("did press global shortcut")
+            self?.toggleThisApp()
         }
     }
     
@@ -270,6 +272,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func didUpdateAlpha(_ newAlpha: NSNumber) {
         alpha = CGFloat(newAlpha.doubleValue) / CGFloat(100.0)
+    }
+    
+    func toggleThisApp() {
+        let app = NSApplication.sharedApplication()
+        if app.active {
+            app.hide(nil)
+        }
+        else {
+            // open this app
+            let ws = NSWorkspace.sharedWorkspace()
+            guard let appPath = ws.fullPathForApplication(kThisApplicationName) else {
+                return
+            }
+            let url = NSURL(fileURLWithPath: appPath)
+            _ = try? ws.launchApplicationAtURL(url, options: NSWorkspaceLaunchOptions.Default, configuration: [NSWorkspaceLaunchConfigurationArguments:[]])
+        }
     }
 }
 
