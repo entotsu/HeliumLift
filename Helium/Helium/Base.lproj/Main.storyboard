@@ -104,6 +104,12 @@
                                             <action selector="translucencyPress:" target="Ady-hI-5gd" id="orR-QV-BPD"/>
                                         </connections>
                                     </menuItem>
+                                    <menuItem title="Set Global Keyboard Shortcut" id="LMr-z7-ON2">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                        <connections>
+                                            <action selector="openGlobalShortcutPress:" target="Voe-Tx-rLC" id="s4A-gL-4JR"/>
+                                        </connections>
+                                    </menuItem>
                                     <menuItem title="Opacity" id="wlj-XI-Lng">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                         <menu key="submenu" title="Opacity" systemMenu="window" id="5ao-Bb-P10">

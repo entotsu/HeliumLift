@@ -8,6 +8,9 @@
 
 import Cocoa
 import CoreGraphics
+import MASShortcut
+
+let kPreferenceGlobalShortcut = "GlobalShortcut"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
@@ -48,6 +51,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         
         // default is transparent
         didEnableTranslucency()
+        
+        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) {
+            NSLog("did pres global shortcut")
+        }
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -154,6 +161,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
     
+    @IBAction func openGlobalShortcutPress(sender: AnyObject) {
+        openGlobalShortcutSetting()
+    }
     @IBAction func openLocationPress(_ sender: AnyObject) {
         print("location requested...")
         didRequestLocation()
@@ -183,7 +193,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func didRequestFile() {
-        
         let open = NSOpenPanel()
         open.allowsMultipleSelection = false
         open.canChooseFiles = true
@@ -225,6 +234,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 }
             }
         })
+    }
+    
+    func openGlobalShortcutSetting() {
+        let alert = NSAlert()
+        alert.alertStyle = NSAlertStyle.InformationalAlertStyle
+        alert.messageText = "Set Global Shortcut for toggle!"
+        
+        let shortcutView = MASShortcutView()
+        shortcutView.frame = NSRect(x: 0, y: 0, width: 300, height: 20)
+        shortcutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut
+        
+        alert.accessoryView = shortcutView
+        alert.addButtonWithTitle("OK")
+        alert.beginSheetModalForWindow(defaultWindow!, completionHandler: nil)
     }
     
     @objc func didBecomeActive() {
