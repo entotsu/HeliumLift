@@ -53,9 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         // default is transparent
         didEnableTranslucency()
         
+        // global shortcut
         MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) { [weak self] in
-            NSLog("did press global shortcut")
             self?.toggleThisApp()
+        }
+        
+        if !isAppAlreadyLaunchedOnce() {
+            openGlobalShortcutSetting()
         }
     }
     
@@ -287,6 +291,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
             let url = NSURL(fileURLWithPath: appPath)
             _ = try? ws.launchApplicationAtURL(url, options: NSWorkspaceLaunchOptions.Default, configuration: [NSWorkspaceLaunchConfigurationArguments:[]])
+        }
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
         }
     }
 }
