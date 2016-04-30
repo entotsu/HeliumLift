@@ -245,7 +245,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func openGlobalShortcutSetting() {
         let alert = NSAlert()
         alert.alertStyle = NSAlertStyle.InformationalAlertStyle
-        alert.messageText = "Set Global Shortcut for toggle!"
+        alert.messageText = "Set Global Shortcut for Show/Hide!"
         
         let shortcutView = MASShortcutView()
         shortcutView.frame = NSRect(x: 0, y: 0, width: 300, height: 20)
