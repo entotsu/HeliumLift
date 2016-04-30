@@ -14,9 +14,14 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="u7q-LV-R5Q">
                                     <items>
-                                        <menuItem title="Hide Ninja" keyEquivalent="h" id="hXy-Ub-coR">
+                                        <menuItem title="Hide" keyEquivalent="h" id="hXy-Ub-coR">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="CN4-ht-bwZ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="lGN-jJ-2HF">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="1qm-ou-DvR"/>
                                             </connections>
                                         </menuItem>
                                     </items>
