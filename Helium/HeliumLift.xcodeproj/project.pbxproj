@@ -13,6 +13,10 @@
 		4D867CB91AD6781200681331 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D867CB81AD6781200681331 /* WebViewController.swift */; };
 		4D867CBB1AD6781200681331 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D867CBA1AD6781200681331 /* Images.xcassets */; };
 		4D867CBE1AD6781200681331 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D867CBC1AD6781200681331 /* Main.storyboard */; };
+		B068021B1CD4630600E0ED72 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B068021A1CD4630600E0ED72 /* MASShortcut.framework */; };
+		B068021D1CD4634500E0ED72 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B068021A1CD4630600E0ED72 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B06802251CD4687200E0ED72 /* MASShortcut.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = B06802241CD4687200E0ED72 /* MASShortcut.framework.dSYM */; };
+		B06802261CD4687B00E0ED72 /* MASShortcut.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = B06802241CD4687200E0ED72 /* MASShortcut.framework.dSYM */; };
 		B34C1EC61ADE3CBE0094ADBA /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B34C1EC51ADE3CBE0094ADBA /* dsa_pub.pem */; };
 		C95672401B50A42700AF7E31 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C956723E1B50A42700AF7E31 /* icon@2x.png */; };
 		C95672411B50A42700AF7E31 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C956723F1B50A42700AF7E31 /* icon.png */; };
@@ -24,6 +28,30 @@
 		C9B1D5DA1B5335B300D92538 /* icon_512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B1D5D31B5335B300D92538 /* icon_512x512.png */; };
 		C9B1D5DB1B5335B300D92538 /* icon_32x32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B1D5D41B5335B300D92538 /* icon_32x32@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B068021E1CD4634600E0ED72 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B068021D1CD4634500E0ED72 /* MASShortcut.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B06802201CD4639400E0ED72 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				B06802261CD4687B00E0ED72 /* MASShortcut.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14D48BB81D46AC3F000547B4 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -38,6 +66,8 @@
 		4D867CC91AD6781200681331 /* HeliumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumTests.swift; sourceTree = "<group>"; };
 		4DEAB8FD1ADBD98600A2FC2B /* Helium-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Helium-Bridging-Header.h"; sourceTree = "<group>"; };
 		4DEAB8FE1ADBD98600A2FC2B /* WKWebViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewPrivate.h; sourceTree = "<group>"; };
+		B068021A1CD4630600E0ED72 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MASShortcut.framework; sourceTree = "<group>"; };
+		B06802241CD4687200E0ED72 /* MASShortcut.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = MASShortcut.framework.dSYM; sourceTree = "<group>"; };
 		B34C1EC21ADE3B520094ADBA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B34C1EC51ADE3CBE0094ADBA /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		C914A3F31B54353D00A0BE9F /* HeliumLift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeliumLift.entitlements; sourceTree = "<group>"; };
@@ -57,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B068021B1CD4630600E0ED72 /* MASShortcut.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +158,8 @@
 		B34C1EC41ADE3B5E0094ADBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B06802241CD4687200E0ED72 /* MASShortcut.framework.dSYM */,
+				B068021A1CD4630600E0ED72 /* MASShortcut.framework */,
 				B34C1EC21ADE3B520094ADBA /* Sparkle.framework */,
 			);
 			name = Frameworks;
@@ -159,6 +192,8 @@
 				4D867CAD1AD6781200681331 /* Sources */,
 				4D867CAE1AD6781200681331 /* Frameworks */,
 				4D867CAF1AD6781200681331 /* Resources */,
+				B068021E1CD4634600E0ED72 /* Embed Frameworks */,
+				B06802201CD4639400E0ED72 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -217,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9B1D5DA1B5335B300D92538 /* icon_512x512.png in Resources */,
+				B06802251CD4687200E0ED72 /* MASShortcut.framework.dSYM in Resources */,
 				C9B1D5D91B5335B300D92538 /* icon_512x512@2x.png in Resources */,
 				4D867CBB1AD6781200681331 /* Images.xcassets in Resources */,
 				C95672411B50A42700AF7E31 /* icon.png in Resources */,
