@@ -24,6 +24,63 @@
                                                 <action selector="hide:" target="Ady-hI-5gd" id="1qm-ou-DvR"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Opacity" id="QpZ-qa-6NP" userLabel="Opacity">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Opacity" id="Wds-ej-CfI">
+                                                <items>
+                                                    <menuItem title="40%" keyEquivalent="4" id="jUf-oB-lf7">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="e8I-YE-g8M"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="80%" keyEquivalent="8" id="6jC-50-aNd">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="UAZ-Yz-Gfj"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="100%" keyEquivalent="0" id="ent-4Q-U3a">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="vYO-FT-RI4"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="10%" keyEquivalent="1" id="ZIa-xM-5DW">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="bEg-N0-5Sl"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="30%" keyEquivalent="3" id="DDW-1s-yND">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="ksT-Og-0qW"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="70%" keyEquivalent="7" id="6h4-7d-lAS">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="eNV-zz-aBw"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="90%" keyEquivalent="9" id="qrx-rB-HTt">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="GgC-C2-E7y"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="20%" keyEquivalent="2" id="bVd-fX-YGX">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="V7k-m0-Ivh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="50%" keyEquivalent="5" id="JbM-MQ-QF4">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="bDf-Tv-u98"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="60%" state="on" keyEquivalent="6" id="tMj-TL-hfM">
+                                                        <connections>
+                                                            <action selector="percentagePress:" target="Ady-hI-5gd" id="wLx-xd-kgn"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
