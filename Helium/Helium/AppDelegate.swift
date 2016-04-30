@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Helium Lift
+//  Ninja Browser
 //
 //  Modified by Justin Mitchell on 7/12/15.
 //  Copyright (c) 2015 Justin Mitchell. All rights reserved.
@@ -11,7 +11,7 @@ import CoreGraphics
 import MASShortcut
 
 let kPreferenceGlobalShortcut = "GlobalShortcut"
-let kThisApplicationName = "HeliumLift"
+let kThisApplicationName = "NinjaBrowser"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
