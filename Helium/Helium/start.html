@@ -2,17 +2,50 @@
 <html>
     <head>
         <style>
-            body{
-                background-color:#3399FF;
-                color:white;
-                font-family: 'Helvetica Neue'
+
+            body {
+                background-color: black;
+                color: gray;
+                font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue';
             }
+
+            a:link {
+               text-decoration: none; 
+            }
+
+            a:link {
+                color: gray;
+            }
+
+            a:hover {
+                opacity: 0.8;
+            }
+        
+            div#links {
+                margin-top: 32px;
+            }
+
+            div#links ul {
+                list-style-type: none;
+            }
+
+            div#links li {
+                font-size: 40px;
+                margin-bottom: 16px;
+                margin-top: 16px;
+                font-weight: 1;
+            }
+
         </style>
     </head>
     <body>
-        <center>Navigate to a webpage using the <b>Location</b> menu in the menubar.
-            <br><br>
-            <img src='http://heliumfloats.com/helium_logo.png' style='width:45%'>
-        </center>
+        <div id="links">
+            <ul>
+                <li><a href="http://google.com">Google</a></li>
+                <li><a href="http://youtube.com">YouTube</a></li>
+                <li><a href="http://twitter.com">Twitter</a></li>
+                <li><a href="http://trello.com">Torello</a></li>
+            </ul>
+        </div>
     </body>
 </html>
