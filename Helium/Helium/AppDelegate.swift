@@ -11,7 +11,6 @@ import CoreGraphics
 import MASShortcut
 
 let kPreferenceGlobalShortcut = "GlobalShortcut"
-let kThisApplicationName = "NinjaBrowser"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
@@ -24,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var defaultWindow:NSWindow!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
-        
         // This has to be called before the application is finished launching
         // or something (the sandbox maybe?) prevents it from registering.
         // I moved it from the applicationDidFinishLaunching method.
@@ -284,11 +282,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             app.hide(nil)
         }
         else {
-            // open this app
+            let bundlePath = NSBundle.mainBundle().bundlePath
+            let appName = NSFileManager.defaultManager().displayNameAtPath(bundlePath)
             let ws = NSWorkspace.sharedWorkspace()
-            guard let appPath = ws.fullPathForApplication(kThisApplicationName) else {
-                return
-            }
+            guard let appPath = ws.fullPathForApplication(appName) else { return }
             let url = NSURL(fileURLWithPath: appPath)
             _ = try? ws.launchApplicationAtURL(url, options: NSWorkspaceLaunchOptions.Default, configuration: [NSWorkspaceLaunchConfigurationArguments:[]])
         }
@@ -296,7 +293,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func isAppAlreadyLaunchedOnce()->Bool{
         let defaults = NSUserDefaults.standardUserDefaults()
-        
         if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
             print("App already launched : \(isAppAlreadyLaunchedOnce)")
             return true
