@@ -95,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         
     }
     
-    var alpha: CGFloat = 0.6 { //default
+    var alpha: CGFloat = 0.9 { //default
         didSet {
             if translucent {
                 panel.alphaValue = alpha
