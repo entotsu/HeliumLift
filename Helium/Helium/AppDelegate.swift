@@ -52,13 +52,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         didEnableTranslucency()
         
         // global shortcut
-        MASShortcutBinder.sharedBinder().bindShortcutWithDefaultsKey(kPreferenceGlobalShortcut) { [weak self] in
+        MASShortcutBinder.shared().bindShortcut(withDefaultsKey: kPreferenceGlobalShortcut) { [weak self] in
             self?.toggleThisApp()
         }
         
-        if !isAppAlreadyLaunchedOnce() {
+//        if !isAppAlreadyLaunchedOnce() {
             openGlobalShortcutSetting()
-        }
+//        }
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -242,7 +242,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func openGlobalShortcutSetting() {
         let alert = NSAlert()
-        alert.alertStyle = NSAlertStyle.InformationalAlertStyle
+        alert.alertStyle = NSAlert.Style.informational
         alert.messageText = "Set Global Shortcut for Show/Hide!"
         
         let shortcutView = MASShortcutView()
@@ -250,8 +250,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         shortcutView.associatedUserDefaultsKey = kPreferenceGlobalShortcut
         
         alert.accessoryView = shortcutView
-        alert.addButtonWithTitle("OK")
-        alert.beginSheetModalForWindow(defaultWindow!, completionHandler: nil)
+        alert.addButton(withTitle: "OK")
+        alert.beginSheetModal(for: defaultWindow!, completionHandler: nil)
     }
     
     @objc func didBecomeActive() {
@@ -277,27 +277,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func toggleThisApp() {
-        let app = NSApplication.sharedApplication()
-        if app.active {
+        let app = NSApplication.shared
+        if app.isActive {
             app.hide(nil)
         }
         else {
-            let bundlePath = NSBundle.mainBundle().bundlePath
-            let appName = NSFileManager.defaultManager().displayNameAtPath(bundlePath)
-            let ws = NSWorkspace.sharedWorkspace()
-            guard let appPath = ws.fullPathForApplication(appName) else { return }
+            let bundlePath = Bundle.main.bundlePath
+            let appName = FileManager.default.displayName(atPath: bundlePath)
+            let ws = NSWorkspace.shared
+            guard let appPath = ws.fullPath(forApplication: appName) else { return }
             let url = NSURL(fileURLWithPath: appPath)
-            _ = try? ws.launchApplicationAtURL(url, options: NSWorkspaceLaunchOptions.Default, configuration: [NSWorkspaceLaunchConfigurationArguments:[]])
+            _ = try? ws.launchApplication(at: url as URL, options: NSWorkspace.LaunchOptions.default, configuration: [NSWorkspace.LaunchConfigurationKey.arguments:[]])
         }
     }
     
     func isAppAlreadyLaunchedOnce()->Bool{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
+        let defaults = UserDefaults.standard
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
             print("App already launched : \(isAppAlreadyLaunchedOnce)")
             return true
         }else{
-            defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
             return false
         }

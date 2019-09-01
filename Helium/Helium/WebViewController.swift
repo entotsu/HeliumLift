@@ -132,6 +132,7 @@ class WebViewController: NSViewController, WKNavigationDelegate {
         
         if let url = urlObject.object as? URL {
             loadAlmostURL(url.absoluteString)
+            
         }
     }
     
@@ -141,19 +142,23 @@ class WebViewController: NSViewController, WKNavigationDelegate {
     
     // MARK: Webview functions
     func clear() {
-        if let homePage = UserDefaults.standard.string(forKey: UserSetting.homePageURL.userDefaultsKey) {
-            loadAlmostURL(homePage)
-        } else {
-            //loadURL(URL(string: "http://heliumlift.duet.to/start.html")!)
-//            loadURL(URL(string: "http://heliumlift.bitballoon.com")!)
-            loadURL(URL(string: "http://m.afreecatv.com/#/search/%EC%95%BC%EA%B5%AC%EC%A4%91%EB%A6%BD")!)
-        }
+        guard let path = Bundle.main.path(forResource: "start", ofType: "html") else { return }
+        let url = NSURL(fileURLWithPath: path)
+        loadURL(url as URL)
+        
+//        if let homePage = UserDefaults.standard.string(forKey: "HeliumLoadURL") {
+//            loadAlmostURL(homePage)
+//        } else {
+//            //loadURL(URL(string: "http://heliumlift.duet.to/start.html")!)
+////            loadURL(URL(string: "http://heliumlift.bitballoon.com")!)
+//            loadURL(URL(string: "http://m.afreecatv.com/#/search/%EC%95%BC%EA%B5%AC%EC%A4%91%EB%A6%BD")!)
+//        }
     }
     
     let webView = WKWebView()
     var shouldRedirect: Bool {
         get {
-            return !UserDefaults.standard.bool(forKey: UserSetting.disabledMagicURLs.userDefaultsKey)
+            return !UserDefaults.standard.bool(forKey: "disabledMagicURLs")
         }
     }
     

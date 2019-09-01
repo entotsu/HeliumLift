@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -160,11 +162,6 @@
                                 <action selector="goHomePressed:" target="Voe-Tx-rLC" id="YI2-7K-bUN"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Show/Hide" keyEquivalent="y" id="G7d-2w-Dc3">
-                            <connections>
-                                <action selector="changeVisible:" target="Voe-Tx-rLC" id="p1y-gc-baS"/>
-                            </connections>
-                        </menuItem>
                         <menuItem title="Open Web URL..." keyEquivalent="l" id="JqH-ds-lJa">
                             <connections>
                                 <action selector="openLocationPress:" target="Voe-Tx-rLC" id="gn4-Bv-OxY"/>
@@ -175,22 +172,25 @@
                                 <action selector="openFilePress:" target="Voe-Tx-rLC" id="0N6-YY-4Wb"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Actions" hidden="YES" id="dMs-cI-mzQ">
+                        <menuItem title="Actions" id="dMs-cI-mzQ">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <menu key="submenu" title="Actions" id="bib-Uj-vzu">
                                 <items>
-                                    <menuItem title="Reload" keyEquivalent="r" id="drw-0K-OAV">
+                                    <menuItem title="Reload" id="drw-0K-OAV">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
                                             <action selector="reloadPress:" target="Ady-hI-5gd" id="gYL-ny-dkm"/>
                                         </connections>
                                     </menuItem>
                                     <menuItem isSeparatorItem="YES" id="wbg-XB-qHT"/>
-                                    <menuItem title="Back" keyEquivalent="[" id="UkE-up-3w1">
+                                    <menuItem title="Back" id="UkE-up-3w1">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
                                             <action selector="backPress:" target="Ady-hI-5gd" id="Ihu-ny-5RO"/>
                                         </connections>
                                     </menuItem>
-                                    <menuItem title="Forward" keyEquivalent="]" id="hcU-ei-qc9">
+                                    <menuItem title="Forward" id="hcU-ei-qc9">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
                                         <connections>
                                             <action selector="forwardPress:" target="Ady-hI-5gd" id="WVi-G0-CqM"/>
                                         </connections>
@@ -318,7 +318,7 @@
                                 </items>
                             </menu>
                         </menuItem>
-                        <menuItem title="Quit NinjaBrowser" keyEquivalent="" id="4sb-4s-VLi">
+                        <menuItem title="Quit NinjaBrowser" id="4sb-4s-VLi">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="terminate:" target="hnw-xV-0zn" id="pxt-ZK-I6x"/>
@@ -333,12 +333,15 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController storyboardIdentifier="HeliumController" showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="NSPanel">
-                        <windowStyleMask key="styleMask" titled="YES" resizable="YES" utility="YES" unifiedTitleAndToolbar="YES" HUD="YES" fullSizeContentView="YES"/>
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="NSPanel">
+                        <windowStyleMask key="styleMask" titled="YES" resizable="YES" utility="YES" HUD="YES" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES"/>
                         <windowPositionMask key="initialPositionMask" rightStrut="YES" topStrut="YES"/>
                         <rect key="contentRect" x="1101" y="707" width="480" height="275"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="U8B-o9-Chb"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
